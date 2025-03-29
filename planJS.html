@@ -1,0 +1,240 @@
+<script>
+    // 1. What are the different data types present in javascript?
+    // 2. What is the difference between == and === in javascript?
+    // 3. What is the difference between let and var in javascript? 
+//     var is function scoped when let is block scoped.
+//     var is hoisted to the top of the function when let is hoisted to the top of the block.
+// example:- v
+    
+
+   // "use strict"; // The "use strict"; directive in JavaScript is used to enable strict mode, which helps catch common coding errors and enforce better coding practices.
+// Characteristics of strict mode in javascript
+// Duplicate arguments are not allowed by developers.
+// In strict mode, you won't be able to use the JavaScript keyword as a parameter or function name.
+// The 'use strict' keyword is used to define strict mode at the start of the script. Strict mode is supported by all browsers.
+// Engineers will not be allowed to create global variables in 'Strict Mode
+
+    // Hoisting in javascript. explain with example.
+        // Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+            // var hostingVar; 
+            // hostingVar = 'Hostinger India';
+            // console.log(hostingVar, 'hostingVar');
+        // hostingConc();
+        // function hostingConc(){
+        //     console.log(hostingVar, 'hostingVarfunc');
+        // }
+
+// debugger why we use 
+
+// 6. Explain Implicit Type Coercion in javascript.
+// automatic conversion of value from one data type to another
+        // // String coercion
+        // var a = 10;
+        // var b = '10'
+        // console.log(a + b, 'a + b'); // 1010 output
+        // //substraction
+        // var a = 10;
+        // var b = 'ten'
+        // var c = '10'
+        // console.log(a - b, 'a - b',a-c,'a-c'); // NaN output
+        // //boolean coercion
+        // var a = 10;
+        // var b = '10'
+        // var c = 0
+        // console.log(a == b, 'a == b'); // true output
+        // if(c){
+        //     console.log('c is true');   
+        // }else{
+        //     console.log('c is false'); // c is false output because 0 is false
+        // }
+        // // Logical operators:
+        // var a = 10;
+        // var b = 'Indore'
+        // var c = 0
+        // if(a || b){
+        //     console.log(a || b, 'a and b is true');
+        // }
+
+// 7. Is javascript a statically typed or a dynamically typed language?
+// dynamically typed language
+        // var a = 10;
+        // a = 'Indore';
+        // console.log(a, 'a');
+
+// 8. What is NaN property in JavaScript?
+// The NaN property represents "Not-a-Number" value. This property indicates that a value is not a legal number.
+        // var a = 10;
+        // var b = 'Indore';
+        // console.log(a*b, 'a*b'); // NaN output
+        // console.log(isNaN(a*b), 'isNaN(a*b)'); // true output
+        // isNaN("Hello")  // Returns true
+        // isNaN(345)   // Returns false
+        // isNaN('1')  // Returns false, since '1' is converted to Number type which results in 0 ( a number) 
+    //   console.log(isNaN(true))// Returns false, since true converted to Number type results in 1 ( a number)
+        // isNaN(false) // Returns false
+        // isNaN(undefined) // Returns true
+
+// 9.  Explain passed by value and passed by reference.?
+// In JavaScript, primitive data types are passed by value and non-primitive data types are passed by reference.
+        // var a = 10;
+        // var b = a;
+        // b = 20;
+        // console.log(a, 'a', b, 'b'); // 10 20 output
+        // var a = {name: 'Indore'};
+        // var b = a;
+        // b.name = 'Bhopal';
+        // console.log(a, 'a', b, 'b'); // {name: "Bhopal"} {name: "Bhopal"} output
+
+// 10. What is an Immediately Invoked Function in JavaScript
+// An Immediately Invoked Function (IIFE) is a JavaScript function that runs as soon as it is defined.
+        // (function(){
+        //     console.log('IIFE');
+        // })();
+    // EX:-
+        //     let result = (function() {
+        // let num = 5;
+        // return num * num;
+        // })();
+        // console.log(result); // 25
+//11    Explain “this” keyword?
+            // The JavaScript this keyword refers to the object it belongs to.
+        //     function doSomething() {
+        //     console.log(this);
+        //     }
+        // doSomething();
+
+        // var a = {
+        //     name: 'Indore',
+        //     city: function(){
+        //         console.log(this.name, 'this.name');
+        //     }
+        // }
+        // a.city(); // Indore output
+// 12.  Explain Higher Order Functions in javascript.?
+// A higher-order function is a function that takes another function as an argument or returns a function as a result.
+        // function higherOrderFunction(callback){
+        //     console.log('Higher Order Function');
+        //     callback();
+        // }
+        // function callback(){
+        //     console.log('Callback');
+        // }
+        // higherOrderFunction(callback);
+
+//13. What do you mean by Self Invoking Functions?
+// A self-invoking function is a function that runs as soon as it is defined.
+        // (function(){
+        //     console.log('Self Invoking Function');
+        // })();
+////14. Explain call(), apply() and, bind() methods.
+// The call() method calls a function with a given this value and arguments provided individually.
+// call()
+// It’s a predefined method in javascript.
+// This method invokes a method (function) by specifying the owner object.
+
+                // function sayHello() {
+                // return "hello " + this.name;
+                // }
+                // var obj = {name:"Indore"};
+                // var result = sayHello.call(obj); // hello Indore
+                // console.log(result, 'result');
+
+// call() method allows an object to use the method (function) of another object.
+
+                // var obj ={
+                //         PersonAge:function(){
+                //         return this.age;
+                //         },
+                //         PersonName:"Indore",
+                // }
+                // var result = obj.PersonAge.call({age:25});
+                // console.log(result, 'result');
+ //apply() 
+//  similier to call() 
+// direrant is that Call() method takes argument sepatatlly whereas, apply() method thats argument as an array.
+                        // function doSomething(msg){
+                        //         console.log(this.name+'is'+msg)
+                        // }
+                        // var obj = {name:'durgesh'}
+                        // doSomething.apply(obj,['sir'])
+
+//3. bind():
+// The bind() method creates a new function that, when called, has its this keyword set to the provided value.
+
+                        // var bikeObj = {
+                        //         bikeDetails: function(registratNum,BrandName){
+                        //                 console.log(this.name+" bike no "+registratNum + " is "+ BrandName)
+                        //         }
+                        // }
+                        // var obj = {name:"durgesh"}
+                        // var getDetails = bikeObj.bikeDetails.bind(obj,'1010','hero')
+                        // getDetails()
+// 16 What is the difference between exec () and test () methods in javascript?
+// test() ad exec() both are RegExp expression in js 
+// exec () method executes a search for a match in a specified string.
+// return an array of information about the match or null if not found 
+
+                        // let searchItem = /hello/;
+                        // let strValue = "hello world";
+                        // let result = searchItem.exec(strValue);
+                        // console.log(result,'result');
+
+// test() method tests a match in a specified string
+// it returns true if it finds a match, otherwise it ruturn false
+                        // let searchItem = /hello/
+                        // let strValue = "hello durgesh"
+                        // let result = searchItem.test(strValue);
+                        // console.log(result,'result')
+
+// 17. What is currying in JavaScript?
+// carrying is a technology, where function that takes multiiple arguments is transformed into a series of function that each take one argument.
+// instand of calling a funtion with all the arguments at once 
+
+                                // // example with currying
+                                // function add(a){
+                                // return function (b){
+                                //         return a + b;
+                                // }
+                                // }
+                                // let callCurr = add(4);
+                                // console.log(callCurr(47))
+
+// 18. What are some advantages of using External JavaScript?
+// JavaScript Code (script) written in a separate file with the extension.js, and then we link that file inside the <head> or <body> element of the HTML file where the code is to be placed.
+                // It allows web designers and developers to collaborate on HTML and javascript files.
+                // We can reuse the code.
+                // Code readability is simple in external javascript
+
+// 19. Explain Scope and Scope Chain in javascript.
+        // Scope in JS determines the accessibility of variables and functions at various parts of one’s code.
+        // Global Scope
+        // Local or Function Scope
+        // Block Scope
+        // Global Scope: Variables or functions declared in the global namespace have global scope, which means all the variables and functions having global scope can be accessed from anywhere inside the code.
+
+                // var globalVar = 'Global Variable';
+                // function globalFunction(){
+                // console.log(globalVar, 'globalVar');
+                // }
+                // globalFunction();
+
+// Function Scope: Any variables or functions declared inside a function have local/function scope, which means that all the variables and functions declared inside a function, can be accessed from within the function and not outside of it.
+                        // function functionScope(){
+                        //         var localVar = 'Local Variable';
+                        //         console.log(localVar, 'localVar');
+                        //         var addString = function(){
+                        //                 console.log(localVar, 'localVar inside function');
+                        //         }
+                        // }
+                        // console.log(localVar, 'functionScope');
+
+
+// Block Scope: Block scope is related to the variables declared using let and const. Variables declared with var do not have block scope. Block scope tells us that any variable declared inside a block { }, can be accessed only inside that block and cannot be accessed outside of it.
+                        // {
+                        //         let blockVar = 'Block Variable';
+                        
+                        // }
+                        // console.log(blockVar, 'blockVar');
+
+
+</script>
