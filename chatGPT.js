@@ -1,5 +1,5 @@
 // source :- https://github.com/marketplace/models/azure-openai/gpt-4o-mini/playground/code
-
+// key :- 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
 
 /*
 Run this model in Javascript
